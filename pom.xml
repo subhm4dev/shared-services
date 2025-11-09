@@ -53,6 +53,32 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Shared Libraries (fallback if ecom-bom not accessible) -->
+            <dependency>
+                <groupId>com.ecom</groupId>
+                <artifactId>custom-error-starter</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ecom</groupId>
+                <artifactId>tenant-context-starter</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ecom</groupId>
+                <artifactId>standard-response-starter</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ecom</groupId>
+                <artifactId>http-client-starter</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ecom</groupId>
+                <artifactId>jwt-validation-starter</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     
