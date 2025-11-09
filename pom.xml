@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.7</version>
+        <relativePath/>
+    </parent>
+    
+    <groupId>com.ecom</groupId>
+    <artifactId>shared-services</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    
+    <name>Shared Services</name>
+    <description>Shared microservices used across all domains (ecommerce, hospital, food delivery, etc.)</description>
+    
+    <modules>
+        <module>shared-iam</module>
+        <module>shared-user-profile</module>
+        <module>shared-address</module>
+        <module>shared-payment</module>
+        <module>shared-gateway</module>
+    </modules>
+    
+    <properties>
+        <java.version>25</java.version>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- Import ecom-bom for dependency management -->
+            <dependency>
+                <groupId>com.ecom</groupId>
+                <artifactId>ecom-bom</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Spring Cloud dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2025.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <repositories>
+        <!-- Maven Central for public dependencies -->
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!-- GitHub Packages for ecom-bom -->
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/subhm4dev/ecom-bom</url>
+        </repository>
+        <!-- GitHub Packages for ecom-shared-libs -->
+        <repository>
+            <id>github-shared</id>
+            <name>GitHub Packages - Shared Libs</name>
+            <url>https://maven.pkg.github.com/subhm4dev/ecom-shared-libs</url>
+        </repository>
+    </repositories>
+    
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/subhm4dev/shared-services</url>
+        </repository>
+    </distributionManagement>
+</project>
+
