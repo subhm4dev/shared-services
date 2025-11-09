@@ -13,6 +13,7 @@ jobs:
     permissions:
       packages: write
       contents: read
+      # Need read access to fetch ecom-bom and ecom-shared-libs
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,6 +35,11 @@ jobs:
             <servers>
               <server>
                 <id>github</id>
+                <username>subhm4dev</username>
+                <password>$GITHUB_TOKEN</password>
+              </server>
+              <server>
+                <id>github-shared</id>
                 <username>subhm4dev</username>
                 <password>$GITHUB_TOKEN</password>
               </server>
